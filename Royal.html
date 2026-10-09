@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Royal Vista Hotel | Luxury Hotels & Resorts</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Georgia, "Times New Roman", serif;
+}
+
+body{
+    background:#0b0b0b;
+    color:#f5f0e6;
+    line-height:1.6;
+}
+
+header{
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:1000;
+    background:rgba(5,5,5,.88);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid #9c7b38;
+}
+
+.navbar{
+    max-width:1400px;
+    margin:auto;
+    padding:18px 5%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:28px;
+    letter-spacing:3px;
+    color:#d6b25e;
+    font-weight:bold;
+}
+
+.logo span{
+    display:block;
+    font-size:10px;
+    letter-spacing:5px;
+    color:#ddd;
+    text-align:center;
+}
+
+nav a{
+    color:#fff;
+    text-decoration:none;
+    margin-left:28px;
+    font-size:14px;
+    letter-spacing:1px;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#d6b25e;
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:140px 20px 80px;
+
+    background:
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.75)),
+    url("https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=2000&q=90");
+
+    background-size:cover;
+    background-position:center;
+}
+
+.hero-content{
+    max-width:900px;
+}
+
+.small-title{
+    color:#d6b25e;
+    letter-spacing:6px;
+    font-size:14px;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:clamp(48px,8vw,100px);
+    letter-spacing:5px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    max-width:700px;
+    margin:auto;
+    font-size:18px;
+    color:#ddd;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:35px;
+    padding:15px 32px;
+    background:#c9a44d;
+    color:#111;
+    text-decoration:none;
+    font-weight:bold;
+    letter-spacing:1px;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:#fff;
+    transform:translateY(-3px);
+}
+
+section{
+    padding:100px 7%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.section-title h2{
+    color:#d6b25e;
+    font-size:42px;
+    margin-bottom:12px;
+}
+
+.section-title p{
+    color:#aaa;
+}
+
+.cards{
+    max-width:1250px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:28px;
+}
+
+.card{
+    background:#151515;
+    border:1px solid #302819;
+    overflow:hidden;
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    border-color:#c9a44d;
+}
+
+.card img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:25px;
+}
+
+.card h3{
+    color:#d6b25e;
+    font-size:25px;
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#aaa;
+    font-size:15px;
+}
+
+.price{
+    margin-top:18px;
+    color:#fff;
+    font-size:18px;
+}
+
+.about{
+    background:#111;
+}
+
+.about-container{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.about img{
+    width:100%;
+    height:500px;
+    object-fit:cover;
+}
+
+.about h2{
+    color:#d6b25e;
+    font-size:44px;
+    margin-bottom:20px;
+}
+
+.about p{
+    color:#bbb;
+    margin-bottom:18px;
+}
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+    margin-top:30px;
+}
+
+.feature{
+    border-left:2px solid #c9a44d;
+    padding-left:15px;
+}
+
+.feature strong{
+    display:block;
+    color:#fff;
+}
+
+.feature span{
+    color:#999;
+    font-size:13px;
+}
+
+.amenities{
+    background:#0d0d0d;
+}
+
+.amenity{
+    text-align:center;
+    padding:35px 20px;
+    border:1px solid #292929;
+    transition:.3s;
+}
+
+.amenity:hover{
+    border-color:#c9a44d;
+}
+
+.icon{
+    font-size:40px;
+    margin-bottom:15px;
+}
+
+.amenity h3{
+    color:#d6b25e;
+    margin-bottom:10px;
+}
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+}
+
+.gallery img{
+    width:100%;
+    height:280px;
+    object-fit:cover;
+    transition:.4s;
+}
+
+.gallery img:hover{
+    transform:scale(1.03);
+}
+
+.booking{
+    background:
+    linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.8)),
+    url("https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=2000&q=90");
+    background-size:cover;
+    background-position:center;
+    text-align:center;
+}
+
+.booking-box{
+    max-width:900px;
+    margin:auto;
+}
+
+.booking h2{
+    font-size:48px;
+    color:#d6b25e;
+}
+
+.form{
+    margin-top:40px;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+
+.form input,
+.form select{
+    padding:17px;
+    background:rgba(255,255,255,.1);
+    border:1px solid #777;
+    color:white;
+    outline:none;
+}
+
+.form select option{
+    color:black;
+}
+
+.form button{
+    grid-column:1/-1;
+    padding:17px;
+    background:#c9a44d;
+    border:none;
+    font-weight:bold;
+    cursor:pointer;
+    font-size:16px;
+}
+
+footer{
+    background:#050505;
+    padding:60px 7% 25px;
+    text-align:center;
+    border-top:1px solid #292929;
+}
+
+footer .logo{
+    margin-bottom:20px;
+}
+
+footer p{
+    color:#777;
+    font-size:14px;
+}
+
+.footer-links{
+    margin:25px 0;
+}
+
+.footer-links a{
+    color:#aaa;
+    text-decoration:none;
+    margin:0 12px;
+}
+
+.footer-links a:hover{
+    color:#d6b25e;
+}
+
+@media(max-width:800px){
+
+    nav{
+        display:none;
+    }
+
+    .about-container{
+        grid-template-columns:1fr;
+    }
+
+    .gallery{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .form{
+        grid-template-columns:1fr;
+    }
+
+    .form button{
+        grid-column:auto;
+    }
+
+    section{
+        padding:75px 5%;
+    }
+}
+
+@media(max-width:500px){
+
+    .gallery{
+        grid-template-columns:1fr;
+    }
+
+    .features{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:48px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="navbar">
+
+        <div class="logo">
+            ROYAL VISTA
+            <span>HOTELS & RESORTS</span>
+        </div>
+
+        <nav>
+            <a href="#home">HOME</a>
+            <a href="#rooms">ROOMS</a>
+            <a href="#resorts">RESORTS</a>
+            <a href="#experience">EXPERIENCE</a>
+            <a href="#gallery">GALLERY</a>
+            <a href="#booking">BOOK NOW</a>
+        </nav>
+
+    </div>
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="small-title">
+            WELCOME TO ROYAL VISTA
+        </div>
+
+        <h1>
+            A NEW ERA OF LUXURY
+        </h1>
+
+        <p>
+            Discover exceptional hotels, private resorts and
+            extraordinary experiences crafted for those who
+            expect nothing less than excellence.
+        </p>
+
+        <a href="#booking" class="btn">
+            RESERVE YOUR STAY
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ROOMS -->
+
+<section id="rooms">
+
+    <div class="section-title">
+
+        <h2>Luxury Rooms & Suites</h2>
+
+        <p>
+            Designed for comfort, privacy and timeless elegance.
+        </p>
+
+    </div>
+
+
+    <div class="cards">
+
+        <div class="card">
+
+            <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=1000&q=85">
+
+            <div class="card-content">
+
+                <h3>Royal Deluxe Room</h3>
+
+                <p>
+                    Elegant interiors, king-size bed,
+                    premium bathroom and city views.
+                </p>
+
+                <div class="price">
+                    From ₹18,000 / night
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1000&q=85">
+
+            <div class="card-content">
+
+                <h3>Royal Executive Suite</h3>
+
+                <p>
+                    Spacious living area, private lounge,
+                    luxury bathroom and panoramic views.
+                </p>
+
+                <div class="price">
+                    From ₹35,000 / night
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1000&q=85">
+
+            <div class="card-content">
+
+                <h3>Presidential Suite</h3>
+
+                <p>
+                    The ultimate Royal Vista experience
+                    with private living, dining and premium services.
+                </p>
+
+                <div class="price">
+                    From ₹75,000 / night
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- RESORTS -->
+
+<section id="resorts" class="about">
+
+    <div class="about-container">
+
+        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=85">
+
+        <div>
+
+            <div class="small-title">
+                ROYAL VISTA RESORT COLLECTION
+            </div>
+
+            <h2>Where Luxury Meets Nature</h2>
+
+            <p>
+                Royal Vista Resorts are designed as private
+                destinations where architecture, nature,
+                hospitality and technology come together.
+            </p>
+
+            <p>
+                From beachfront villas to mountain retreats,
+                every property is created around privacy,
+                comfort and extraordinary experiences.
+            </p>
+
+            <div class="features">
+
+                <div class="feature">
+                    <strong>Private Villas</strong>
+                    <span>Exclusive personal spaces</span>
+                </div>
+
+                <div class="feature">
+                    <strong>Infinity Pools</strong>
+                    <span>Luxury pool experiences</span>
+                </div>
+
+                <div class="feature">
+                    <strong>Fine Dining</strong>
+                    <span>International cuisine</span>
+                </div>
+
+                <div class="feature">
+                    <strong>Wellness</strong>
+                    <span>Spa & fitness experiences</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- AMENITIES -->
+
+<section id="experience" class="amenities">
+
+    <div class="section-title">
+
+        <h2>The Royal Experience</h2>
+
+        <p>
+            Everything you need. Everything you deserve.
+        </p>
+
+    </div>
+
+
+    <div class="cards">
+
+        <div class="amenity">
+            <div class="icon">♨</div>
+            <h3>Royal Spa</h3>
+            <p>
+                Premium wellness and relaxation treatments.
+            </p>
+        </div>
+
+        <div class="amenity">
+            <div class="icon">🍽</div>
+            <h3>Fine Dining</h3>
+            <p>
+                International cuisine created by expert chefs.
+            </p>
+        </div>
+
+        <div class="amenity">
+            <div class="icon">🏊</div>
+            <h3>Infinity Pool</h3>
+            <p>
+                Private and panoramic pool experiences.
+            </p>
+        </div>
+
+        <div class="amenity">
+            <div class="icon">💼</div>
+            <h3>Business Lounge</h3>
+            <p>
+                Executive spaces for meetings and business.
+            </p>
+        </div>
+
+        <div class="amenity">
+            <div class="icon">🚘</div>
+            <h3>Chauffeur Service</h3>
+            <p>
+                Premium airport and city transportation.
+            </p>
+        </div>
+
+        <div class="amenity">
+            <div class="icon">🔐</div>
+            <h3>24/7 Concierge</h3>
+            <p>
+                Dedicated assistance whenever you need it.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- GALLERY -->
+
+<section id="gallery">
+
+    <div class="section-title">
+
+        <h2>Royal Vista Gallery</h2>
+
+        <p>
+            A glimpse into the world of Royal Vista.
+        </p>
+
+    </div>
+
+
+    <div class="gallery">
+
+        <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1000&q=85">
+
+        <img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1000&q=85">
+
+        <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1000&q=85">
+
+        <img src="https://images.unsplash.com/photo-1601918774946-25832a4be0d6?auto=format&fit=crop&w=1000&q=85">
+
+    </div>
+
+</section>
+
+
+<!-- BOOKING -->
+
+<section class="booking" id="booking">
+
+    <div class="booking-box">
+
+        <div class="small-title">
+            YOUR ROYAL ESCAPE AWAITS
+        </div>
+
+        <h2>Reserve Your Stay</h2>
+
+        <form class="form" onsubmit="bookNow(event)">
+
+            <input type="text"
+                   placeholder="Full Name"
+                   required>
+
+            <input type="email"
+                   placeholder="Email Address"
+                   required>
+
+            <input type="date"
+                   required>
+
+            <input type="date"
+                   required>
+
+            <select required>
+
+                <option value="">
+                    Select Room
+                </option>
+
+                <option>
+                    Royal Deluxe Room
+                </option>
+
+                <option>
+                    Royal Executive Suite
+                </option>
+
+                <option>
+                    Presidential Suite
+                </option>
+
+            </select>
+
+            <select required>
+
+                <option value="">
+                    Guests
+                </option>
+
+                <option>1 Guest</option>
+                <option>2 Guests</option>
+                <option>3 Guests</option>
+                <option>4 Guests</option>
+                <option>5+ Guests</option>
+
+            </select>
+
+            <button type="submit">
+                CHECK AVAILABILITY
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="logo">
+        ROYAL VISTA
+        <span>HOTELS & RESORTS</span>
+    </div>
+
+    <div class="footer-links">
+
+        <a href="#home">Home</a>
+        <a href="#rooms">Rooms</a>
+        <a href="#resorts">Resorts</a>
+        <a href="#experience">Experience</a>
+        <a href="#gallery">Gallery</a>
+
+    </div>
+
+    <p>
+        © 2026 Royal Vista Hotels & Resorts.
+        All Rights Reserved.
+    </p>
+
+</footer>
+
+
+<script>
+
+function bookNow(event){
+
+    event.preventDefault();
+
+    alert(
+        "Thank you for choosing Royal Vista Hotels & Resorts. " +
+        "Our reservation team will contact you shortly."
+    );
+
+}
+
+</script>
+
+</body>
+</html>
